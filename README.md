@@ -1,4 +1,4 @@
 ## Python-Study-MachineLearning
 
 ### Guia de Estudos em Python do Cientista de Dados das Galaxias
-![](img/gif-cara-de-espanto.gif)
+![neil](https://media.giphy.com/media/3o7TKSjRrfIPjeiVyM/giphy.gif)
