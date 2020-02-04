@@ -30,5 +30,5 @@ for i in range(1, 13):
     #print('---')
     previsoes.append(media_movel[inferior:superior].mean())
 
-previsoes = previsoes[::-1]
+previsoes = previsoes[::-1]# divide a base
 plt.plot(previsoes)
