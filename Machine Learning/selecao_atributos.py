@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import confusion_matrix, accuracy_score
 from sklearn.svm import SVC
-from sklearn.ensemble import ExtraTreesClassifier
+from sklearn.ensemble import ExtraTreesClassifier # lib para fazer a seleção dos atributos
 
 credito = pd.read_csv('Credit.csv')
 previsores = credito.iloc[:,0:20].values
@@ -35,9 +35,9 @@ taxa_acerto = accuracy_score(y_teste, previsoes)
 
 forest = ExtraTreesClassifier()
 forest.fit(X_treinamento, y_treinamento)
-importancias = forest.feature_importances_
+importancias = forest.feature_importances_ # Faz um df com a importancia de cada uma das variaveis para o modelo 
 
-X_treinamento2 = X_treinamento[:,[0,1,2,3]]
+X_treinamento2 = X_treinamento[:,[0,1,2,3]] # Separando algumas colunas com pase nas importancias
 X_teste2 = X_teste[:,[0,1,2,3]]
 
 svm2 = SVC()

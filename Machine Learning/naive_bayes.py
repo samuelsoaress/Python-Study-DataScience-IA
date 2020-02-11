@@ -1,13 +1,14 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import GaussianNB
-from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import LabelEncoder # Faz a codificação de uma label
 from sklearn.metrics import confusion_matrix, accuracy_score
 
 credito = pd.read_csv('Credit.csv')
 previsores = credito.iloc[:,0:20].values
 classe = credito.iloc[:,20].values
 
+''' DISCRETIZAÇÃO DA BASE COM LIB LabelEncoder'''
 labelencoder = LabelEncoder()
 previsores[:,0] = labelencoder.fit_transform(previsores[:,0])
 previsores[:,2] = labelencoder.fit_transform(previsores[:,2])
@@ -35,7 +36,7 @@ confusao = confusion_matrix(y_teste, previsoes)
 taxa_acerto = accuracy_score(y_teste, previsoes)
 taxa_erro = 1 - taxa_acerto
 
-from yellowbrick.classifier import ConfusionMatrix
+from yellowbrick.classifier import ConfusionMatrix # lib de vizualização de modelos
 v = ConfusionMatrix(GaussianNB())
 v.fit(X_treinamento, y_treinamento)
 v.score(X_teste, y_teste)
@@ -57,5 +58,5 @@ novo_credito[:, 16] = labelencoder.fit_transform(novo_credito[:, 16])
 novo_credito[:, 18] = labelencoder.fit_transform(novo_credito[:, 18])
 novo_credito[:, 19] = labelencoder.fit_transform(novo_credito[:, 19])
 
-naive_bayes.predict(novo_credito)
+naive_bayes.predict(novo_credito) # Simulando a entrada de um novo cliente
 
