@@ -5,12 +5,12 @@ import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 
 iris = datasets.load_iris()
-unicos, quantidade = np.unique(iris.target, return_counts = True)
+unicos, quantidade = np.unique(iris.target, return_counts = True) # dois arrays um com o total de classes e o outro com a quantidade de cada classe
 
 cluster = KMeans(n_clusters = 3)
 cluster.fit(iris.data)
 
-centroides = cluster.cluster_centers_
+centroides = cluster.cluster_centers_ #Aaqui é exibida a média dos centroids
 previsoes = cluster.labels_
 
 unicos2, quantidade2 = np.unique(previsoes, return_counts = True)
