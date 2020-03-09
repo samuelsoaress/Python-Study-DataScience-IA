@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
 import nltk
 #nltk.download()
-from nltk.corpus import PlaintextCorpusReader
-from nltk.corpus import stopwords
+from nltk.corpus import PlaintextCorpusReader 
+from nltk.corpus import stopwords # para remoção de palavras
 from matplotlib.colors import ListedColormap
 from wordcloud import WordCloud
 import string
@@ -22,7 +22,7 @@ palavras = corpus.words()
 palavras[170]
 len(palavras)
 
-stops = stopwords.words('english')
+stops = stopwords.words('english') ## mostra todas as palavras em inglês
 mapa_cores = ListedColormap(['orange', 'green', 'red', 'magenta'])
 nuvem = WordCloud(background_color = 'white',
                   colormap = mapa_cores,
