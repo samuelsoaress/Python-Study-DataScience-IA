@@ -13,6 +13,6 @@ plt.xlabel('Volume')
 
 plt.boxplot(base)
 
-plt.boxplot(base.Volume, vert = False)
+plt.boxplot(base.Volume, vert = False) # vert = vertical
 plt.boxplot(base.Girth, vert = False)
 plt.boxplot(base.Height, vert = False)

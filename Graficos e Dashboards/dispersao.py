@@ -11,4 +11,4 @@ plt.ylabel('Circunferência')
 
 plt.plot(base.Girth, base.Volume)
 
-sns.regplot(base.Girth, base.Volume, data = base, x_jitter = 0.3, fit_reg = False)
+sns.regplot(base.Girth, base.Volume, data = base, x_jitter = 0.3, fit_reg = False) # grafico de dispersão com linha de regressão

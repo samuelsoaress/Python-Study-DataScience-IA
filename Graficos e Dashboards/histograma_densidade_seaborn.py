@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 base = pd.read_csv('trees.csv')
 
-srn.distplot(base.Volume, bins = 10, axlabel = 'Volume').set_title('Árvores')
+srn.distplot(base.Volume, bins = 10, axlabel = 'Volume').set_title('Árvores') # grafico de histograma com densidade
 
 base2 = pd.read_csv('chicken.csv')
 
@@ -12,6 +12,8 @@ agrupado = base2.groupby(['feed'])['weight'].sum()
 
 teste = base2.loc[base2['feed'] == 'horsebean']
 
+
+# graficos e subgraficos mostrando a distribuição das categorias
 plt.figure()
 plt.subplot(3,2,1)
 srn.distplot(base2.loc[base2['feed'] == 'horsebean'].weight, hist = False).set_title('horsebean')

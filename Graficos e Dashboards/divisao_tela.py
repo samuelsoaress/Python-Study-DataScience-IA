@@ -10,7 +10,7 @@ plt.subplot(2,2,1)
 plt.scatter(base.Girth, base.Volume)
 
 # girth com heigth
-plt.subplot(2,2,2)
+plt.subplot(2,2,2) # o terceiro argumento é o id do grafico sendo necessario para subplots
 plt.scatter(base.Girth, base.Height)
 
 # heigth com volume

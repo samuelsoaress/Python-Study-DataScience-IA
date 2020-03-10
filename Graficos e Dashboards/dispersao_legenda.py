@@ -9,5 +9,5 @@ unicos = list(set(base.Treatment))
 
 for i in range(len(unicos)):
     indice = base.Treatment == unicos[i]
-    plt.scatter(x[indice], y[indice], label = unicos[i])
-plt.legend(loc = 'lower right')
+    plt.scatter(x[indice], y[indice], label = unicos[i]) # for com finalidade de pintar os pontos de diferentes categorias
+plt.legend(loc = 'lower right') # posiciona a legenda com base nas cores

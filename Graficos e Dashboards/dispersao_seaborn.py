@@ -29,6 +29,6 @@ plt.tight_layout()
 
 base2 = pd.read_csv('esoph.csv')
 
-srn.catplot(x = 'alcgp', y = 'ncontrols', data = base2, jitter = False)
+srn.catplot(x = 'alcgp', y = 'ncontrols', data = base2, jitter = False) # graficos de dispersão divididos pra mostra relacionamento entre variaveis
 
 srn.catplot(x = 'alcgp', y = 'ncontrols', data = base2, col = 'tobgp')
