@@ -1,0 +1,24 @@
+MAIS INFORMAÇÕES
+
+http://kourentzes.com/forecasting/2014/04/19/tstools-for-r/
+
+INSTALAÇÃO
+
+if (!require("devtools"))
+    install.packages("devtools")
+devtools::install_github("trnnick/TStools")
+
+require(TStools)
+
+dados <- read.csv("C:/dev/Python/Machine-Learning/Validação Cruzada/dados-testes.csv")
+matriz <- as.matrix(dados)
+TStools::nemenyi(matriz,conf.int=0.95, plottype="vline")
+--------------------------------------------------------------------------
+Registrando: A nemenyi está agora na tsutils e não na TStools.
+Basta baixa-lá do mesmo modo:
+
+install.packages("tsutils")
+
+E utilizar o comando:
+
+tsutils::nemenyi(matriz, conf.level = 0.95, plottype = "vline")
