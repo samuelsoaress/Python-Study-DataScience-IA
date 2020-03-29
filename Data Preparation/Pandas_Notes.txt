@@ -1,0 +1,116 @@
+	Descrição dos tipos de dados.
+Series = nada mais é que um array de 1 dimensão. Você pode considerar um Series também como uma coluna de uma tabela. 
+Exemplo = >>> s = pd.Series([3, -5, 7, 4], index=['a', 'b', 'c', 'd'])
+
+DataFrame = é simplesmente um conjunto de Series. Trata-se de uma estrutura de dados de 2 dimensões — colunas e linhas — que transforma os dados em uma bela tabela
+Exemplo = #Criando um dicionário onde cada chave será uma coluna do DataFrame 
+>>> data = {
+	'País': ['Bélgica', 'Índia', 'Brasil'],
+	'Capital': ['Bruxelas', 'Nova Delhi', 'Brasília'],
+	'População': [123465, 456789, 987654]
+	}
+#Criando o DataFrame
+>>> df = pd.DataFrame(data, columns=['País','Capital','População'])
+
+	Abrindo e escrevendo arquivos CSV:
+#Para ler arquivos CSV codificados em ISO
+>>> pd.read_csv('nome_do_arquivo.csv', encoding='ISO-8859-1')
+#Para escrever arquivos CSV
+>>> pd.to_csv('nome_do_arquivo_para_salvar.csv')
+
+	Abrindo arquivos de Excel:
+>>> xlsx = pd.ExcelFile('seu_arquivo_excel.xlsx')
+>>> df = pd.read_excel(xlsx, 'Planilha 1')
+	
+	Removendo linhas e colunas:
+#Removendo linhas pelo index
+df.drop([indice])
+#Removendo colunas utilizando o argumento axis=1
+df.drop('País', axis=1)
+#Removendo as linhas nulas da coluna
+df = df.dropna(subset=['nome_coluna'])
+#Colocando a media em uma linha nula
+>>>df.fillna(df.mean(0))
+
+	Removendo arquivos duplicados:
+#Informa um bollean na linha que contem arquivo duplicados
+>>>df.duplicated()
+#Remove todas as linhas duplicadas
+>>>df = df.drop_duplicates()
+
+	Coletando informações básicas sobre o DataFrame:
+#Quantidade de linhas e colunas do DataFrame
+>>> df.shape
+#Descrição do Index
+>>> df.index
+#Colunas presentes no DataFrame
+>>> df.columns
+#Contagem de dados não-nulos
+>>> df.count()
+#Descrição da quantidade de dados em cada linha da coluna
+>>>df.nome_coluna.value_counts()
+#Contagem de nulos em cada coluna
+df.isnull().sum()
+#Coletando a quantidade de valores na coluna
+>>>df.nomeDaColuna.value_counts()
+
+	Criando uma nova coluna em um DataFrame:
+>>> df['Nova Coluna'] = 0
+
+	Renomeando colunas de um DataFrame:
+#Se seu DataFrame possui 3 colunas, passe 3 novos valores em uma lista
+df.columns = ['Coluna 1', 'Coluna 2', 'Coluna 3']
+
+	Resumo dos dados:
+#Soma dos valores de um DataFrame
+>>> df.sum()
+#Menor valor de um DataFrame
+>>> df.min()
+#Maior valor
+>>> df.max()
+#Index do menor valor
+>>> df.idmin()
+#Index do maior valor
+>>> df.idmax()
+#Resumo estatístico do DataFrame, com quartis, mediana, etc.
+>>> df.describe()
+#Média dos valores
+>>> df.mean()
+#Mediana dos valores
+>>> df.median()
+
+	Aplicando funções:
+#Aplicando uma função que substitui a por b
+df.apply(lambda x: x.replace('a', 'b'))
+
+	Ordenando valores:
+#Ordenando em ordem crescente
+df.sort_values()
+#Ordenando em ordem decrescente
+df.sort_values(ascending=False)
+
+	Operações aritméticas em Series:
+>>> s = pd.Series([1, 2, 3, 4, 5], index=['a', 'b', 'c', 'd', 'e'])
+#Somando todos os valores presentes na Series por 2
+>>> s.add(2)
+#Subtraindo 2 de todos os valores
+>>> s.sub(2)
+#Multiplicando todos os valores por 2
+>>> s.mul(2)
+#Dividindo valores por 2
+>>> s.div(2)
+
+	Indexação por Boolean:
+#Filtrando o DataFrame para mostrar apenas valores pares
+df[df['População'] % 2 == 0]
+
+	Selecionando valores:
+#Selecionando a primeira linha da coluna país
+df.loc[0, 'País']
+
+	Quebrando o Data Frame
+#Pegando uma porcentagem do Data frame
+>>>df1 = df[df.nome_coluna == 0 ].sample(quantidade)
+>>>df2 = df[df.nome_coluna == 1 ].sample(quantidade)
+#Concatenando as bases
+>>>df_concat = pd.concat([df1, df2], axis = 1)
