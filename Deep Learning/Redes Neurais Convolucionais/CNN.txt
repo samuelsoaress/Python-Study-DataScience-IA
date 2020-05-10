@@ -1,0 +1,8 @@
+1° Operador de Convolução.
+	Detecta as caracteristicas e gera varios mapas de caracteristicas utilizando a função RELU(Dados negativos trocados para 0).
+2° Pooling.
+	Utiliza o Max pooling para detectar as caracteristicas mais importantes pegando os maiores valores de cada mapa.
+3° Flattening
+	Converte os mapas polling para vetores.
+
+Após aplicar para uma rede neural densa(com varios neuronios).	
