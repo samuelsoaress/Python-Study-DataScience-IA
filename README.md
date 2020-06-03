@@ -1,6 +1,6 @@
 ## Python-Study-MachineLearning-DataScience
 
-### Galaxy Data Scientist Python Study Guide
+### Galaxies Data Scientist Python Study Guide
 ![neil](https://media.giphy.com/media/3o7TKSjRrfIPjeiVyM/giphy.gif)
 
 
